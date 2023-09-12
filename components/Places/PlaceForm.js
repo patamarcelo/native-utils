@@ -3,6 +3,9 @@ import { useState } from "react";
 
 import colors from "../../utils/colors";
 
+import ImagePicker from "./ImagePicker";
+import LocationPicker from "./LocationPicker";
+
 const PlaceForm = () => {
 	const [text, setText] = useState("");
 
@@ -19,6 +22,8 @@ const PlaceForm = () => {
 					value={text}
 				/>
 			</View>
+			<ImagePicker />
+			<LocationPicker />
 		</ScrollView>
 	);
 };
