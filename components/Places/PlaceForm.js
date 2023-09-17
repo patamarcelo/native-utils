@@ -7,7 +7,10 @@ import ImagePicker from "./ImagePicker";
 import LocationPicker from "./LocationPicker";
 import Button from "../../components/ui/Button";
 
-const PlaceForm = () => {
+import { Place } from "../../models/place";
+
+const PlaceForm = (props) => {
+	const { onCreatePlace } = props;
 	const [text, setText] = useState("");
 	const [pickedLocation, setPickedLocation] = useState();
 	const [selectedImage, setSelectedImage] = useState();
@@ -24,9 +27,12 @@ const PlaceForm = () => {
 	}, []);
 
 	const savePlaceHandler = () => {
-		console.log(text);
-		console.log(pickedLocation);
-		console.log(selectedImage);
+		const placeData = new Place(text, selectedImage, pickedLocation);
+		onCreatePlace(placeData);
+
+		// console.log(text);
+		// console.log(pickedLocation);
+		// console.log(selectedImage);
 	};
 
 	return (

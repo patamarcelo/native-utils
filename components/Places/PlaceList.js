@@ -3,6 +3,7 @@ import PlaceItem from "./PlaceItem";
 import Colors from "../../utils/colors";
 
 const PlaceList = ({ items }) => {
+	console.log(items);
 	if (!items || items.length === 0) {
 		return (
 			<View style={styles.fallbackContainer}>
@@ -13,6 +14,7 @@ const PlaceList = ({ items }) => {
 	return (
 		<View>
 			<FlatList
+				style={styles.list}
 				data={items}
 				keyExtractor={(item) => item.id}
 				renderItem={({ item }) => <PlaceItem place={item} />}
@@ -24,6 +26,7 @@ const PlaceList = ({ items }) => {
 export default PlaceList;
 
 const styles = StyleSheet.create({
+	list: { marginHorizontal: 18 },
 	fallbackContainer: {
 		flex: 1,
 		justifyContent: "center",
